@@ -9,22 +9,22 @@ C_SRC_RTC_PREFIX = os.path.join('cbits', 'webrtc', 'rtc_base')
 
 c_sources = (
     [os.path.join(
-        'cbits', 'pywebrtcvad.c')]
+        'cbits', 'pywebrtcvad.cc')]
     + glob.glob(
         os.path.join(
             C_SRC_PREFIX,
             'signal_processing',
-            '*.c'))
+            '*.cc'))
     + glob.glob(
         os.path.join(
             C_SRC_PREFIX,
             'third_party',
-            '*.c'))
+            '*.cc'))
     + glob.glob(
         os.path.join(
             C_SRC_PREFIX,
             'vad',
-            '*.c'))
+            '*.cc'))
     + glob.glob(
         os.path.join(
             C_SRC_RTC_PREFIX,

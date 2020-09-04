@@ -14,7 +14,7 @@
 #ifndef COMMON_AUDIO_SIGNAL_PROCESSING_INCLUDE_SPL_INL_H_
 #define COMMON_AUDIO_SIGNAL_PROCESSING_INCLUDE_SPL_INL_H_
 
-#include "webrtc/rtc_base/compile_assert_c.h"
+#include "webrtc/rtc_base/compile_assert_c.hh"
 
 extern const int8_t kWebRtcSpl_CountLeadingZeros32_Table[64];
 
@@ -63,11 +63,11 @@ static __inline int WebRtcSpl_CountLeadingZeros64(uint64_t n) {
 }
 
 #ifdef WEBRTC_ARCH_ARM_V7
-#include "webrtc/common_audio/signal_processing/include/spl_inl_armv7.h"
+#include "webrtc/common_audio/signal_processing/include/spl_inl_armv7.hh"
 #else
 
 #if defined(MIPS32_LE)
-#include "webrtc/common_audio/signal_processing/include/spl_inl_mips.h"
+#include "webrtc/common_audio/signal_processing/include/spl_inl_mips.hh"
 #endif
 
 #if !defined(MIPS_DSP_R1_LE)

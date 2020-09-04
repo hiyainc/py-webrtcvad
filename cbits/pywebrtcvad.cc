@@ -1,5 +1,5 @@
 #include <Python.h>
-#include "webrtc/common_audio/vad/include/webrtc_vad.h"
+#include "webrtc/common_audio/vad/include/webrtc_vad.hh"
 
 #if PY_MAJOR_VERSION >= 3
 #define PY3
@@ -11,7 +11,7 @@ const char WebRtcVadDoc[] = "hello.";
 
 static void vad_free(PyObject* vadptr)
 {
-  VadInst* handle = PyCapsule_GetPointer(vadptr, "WebRtcVadPtr");
+  VadInst* handle = (VadInst*)PyCapsule_GetPointer(vadptr, "WebRtcVadPtr");
   WebRtcVad_Free(handle);
 }
 
@@ -24,7 +24,7 @@ static PyObject* vad_create(PyObject *self, PyObject *args)
 
 static PyObject* vad_init(PyObject *self, PyObject *vadptr)
 {
-  VadInst* handle = PyCapsule_GetPointer(vadptr, "WebRtcVadPtr");
+  VadInst* handle = (VadInst*)PyCapsule_GetPointer(vadptr, "WebRtcVadPtr");
   if (WebRtcVad_Init(handle)) {
     return NULL;
   }
@@ -46,7 +46,7 @@ static PyObject* vad_set_mode(PyObject *self, PyObject *args)
                  mode);
     return NULL;
   }
-  if (WebRtcVad_set_mode(PyCapsule_GetPointer(vadptr, "WebRtcVadPtr"), mode)) {
+  if (WebRtcVad_set_mode((VadInst*)PyCapsule_GetPointer(vadptr, "WebRtcVadPtr"), mode)) {
     PyErr_Format(VadError, "Unable to set mode to %ld", mode);
     return NULL;
   }
@@ -92,9 +92,9 @@ static PyObject* vad_process(PyObject *self, PyObject *args)
 #endif
     return NULL;
   }
-  result =  WebRtcVad_Process(PyCapsule_GetPointer(vadptr, "WebRtcVadPtr"),
+  result =  WebRtcVad_Process((VadInst*)PyCapsule_GetPointer(vadptr, "WebRtcVadPtr"),
                                   fs,
-                                  audio_frame.buf,
+                                  (const int16_t*) audio_frame.buf,
                                   frame_length);
   PyBuffer_Release(&audio_frame);
   switch (result) {

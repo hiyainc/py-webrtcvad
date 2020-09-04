@@ -42,8 +42,8 @@ RTC_NORETURN void rtc_FatalMessage(const char* file, int line, const char* msg);
 
 #include <string>
 
-#include "webrtc/rtc_base/numerics/safe_compare.h"
-#include "webrtc/rtc_base/system/inline.h"
+#include "webrtc/rtc_base/numerics/safe_compare.hh"
+#include "webrtc/rtc_base/system/inline.hh"
 
 // The macros here print a message to stderr and abort under various
 // conditions. All will accept additional stream messages. For example:

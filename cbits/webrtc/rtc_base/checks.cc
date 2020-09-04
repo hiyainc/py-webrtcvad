@@ -33,7 +33,7 @@
 #define LAST_SYSTEM_ERROR (errno)
 #endif  // WEBRTC_WIN
 
-#include "webrtc/rtc_base/checks.h"
+#include "webrtc/rtc_base/checks.hh"
 
 namespace {
 #if defined(__GNUC__)

@@ -15,9 +15,9 @@
  *
  */
 
-#include "webrtc/common_audio/signal_processing/complex_fft_tables.h"
-#include "webrtc/common_audio/signal_processing/include/signal_processing_library.h"
-#include "webrtc/rtc_base/system/arch.h"
+#include "webrtc/common_audio/signal_processing/complex_fft_tables.hh"
+#include "webrtc/common_audio/signal_processing/include/signal_processing_library.hh"
+#include "webrtc/rtc_base/system/arch.hh"
 
 #define CFFTSFT 14
 #define CFFTRND 1
