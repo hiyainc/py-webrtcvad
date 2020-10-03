@@ -1,6 +1,3 @@
-.. image:: https://travis-ci.org/wiseman/py-webrtcvad.svg?branch=master
-    :target: https://travis-ci.org/wiseman/py-webrtcvad
-
 py-webrtcvad
 ============
 
@@ -46,7 +43,7 @@ How to use it
 
 
 See `example.py
-<https://github.com/wiseman/py-webrtcvad/blob/master/example.py>`_ for
+<example.py>`_ for
 a more detailed example that will process a .wav file, find the voiced
 segments, and write each one as a separate .wav.
 
